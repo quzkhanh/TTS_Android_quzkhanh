@@ -295,7 +295,7 @@ fun main() {
     //  9. BIẾN ĐỔI DỮ LIỆU
     // =========================================================
 
-    val transformList = listOf(1, 2, 3, 4, 5)
+    val transformList = listOf(1, 2, 3, 4, 5, 6)
     println("List gốc: $transformList")
 
     // 9.1. Map - ánh xạ mỗi phần tử thành giá trị khác
