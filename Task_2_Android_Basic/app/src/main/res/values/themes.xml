@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-<<<<<<< HEAD
-    <style name="Theme.Task_2_Android_Basic" parent="android:Theme.Material.Light.NoActionBar" />
-=======
-    <style name="Theme.Android_Basic" parent="android:Theme.Material.Light.NoActionBar" />
->>>>>>> origin/main
-</resources>
