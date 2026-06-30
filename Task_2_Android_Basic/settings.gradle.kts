@@ -22,5 +22,9 @@ dependencyResolutionManagement {
     }
 }
 
+<<<<<<< HEAD
 rootProject.name = "Task_2_Android_Basic"
+=======
+rootProject.name = "Android_Basic"
+>>>>>>> origin/main
 include(":app")

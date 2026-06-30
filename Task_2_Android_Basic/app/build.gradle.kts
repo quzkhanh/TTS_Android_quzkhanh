@@ -4,7 +4,11 @@ plugins {
 }
 
 android {
+<<<<<<< HEAD
     namespace = "com.example.task_2_android_basic"
+=======
+    namespace = "com.example.android_basic"
+>>>>>>> origin/main
     compileSdk = 37
 
     defaultConfig {
@@ -38,9 +42,13 @@ dependencies {
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.compose.material3)
+<<<<<<< HEAD
     implementation(libs.androidx.compose.material.icons.extended)
     implementation(libs.androidx.compose.ui)
 
+=======
+    implementation(libs.androidx.compose.ui)
+>>>>>>> origin/main
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.core.ktx)
