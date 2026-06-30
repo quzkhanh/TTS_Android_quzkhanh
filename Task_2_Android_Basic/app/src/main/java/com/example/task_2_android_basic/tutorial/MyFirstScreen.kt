@@ -379,7 +379,7 @@ fun MainDemoProfileScreen(isDarkMode: Boolean, textColor: Color) {
                 OutlinedTextField(
                     value = tagInputText,
                     onValueChange = { tagInputText = it },
-                    placeholder = { Text("Ví dụ: MVVM, Room...", fontSize = 14.sp) },
+                    placeholder = { Text("Thêm kỹ năng...", fontSize = 14.sp) },
                     singleLine = true,
                     modifier = Modifier.weight(1f),
                     colors = OutlinedTextFieldDefaults.colors(

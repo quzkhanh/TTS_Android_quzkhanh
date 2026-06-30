@@ -86,13 +86,13 @@ fun StateBasicsScreen() {
 
         if (nameInput.isNotEmpty()) {
             Text(
-                text = "Xin chào, $nameInput! Chúc bạn học Compose vui vẻ!",
+                text = "Xin chào, $nameInput!",
                 fontSize = 18.sp,
                 color = androidx.compose.ui.graphics.Color(0xFF00796B)
             )
         } else {
             Text(
-                text = "(Hãy nhập tên ở ô phía trên)",
+                text = "(Chưa nhập tên)",
                 fontSize = 14.sp,
                 color = androidx.compose.ui.graphics.Color.Gray
             )
