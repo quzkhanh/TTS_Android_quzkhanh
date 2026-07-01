@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 interface NoteRepository {
     val categories: Flow<List<CategoryEntity>>
-    fun notes(categoryId: Long?): Flow<PagingData<NoteEntity>>
+    fun notes(categoryId: Long?, query: String): Flow<PagingData<NoteEntity>>
     fun observe(id: Long): Flow<NoteEntity?>
     suspend fun save(note: NoteEntity): Long
     suspend fun delete(note: NoteEntity)
@@ -25,9 +25,14 @@ class RoomNoteRepository @Inject constructor(
 ) : NoteRepository {
     override val categories: Flow<List<CategoryEntity>> = categoryDao.observeAll()
 
-    override fun notes(categoryId: Long?): Flow<PagingData<NoteEntity>> =
+    override fun notes(categoryId: Long?, query: String): Flow<PagingData<NoteEntity>> =
         Pager(PagingConfig(pageSize = 20, enablePlaceholders = false)) {
-            if (categoryId == null) noteDao.pagingSource() else noteDao.pagingSource(categoryId)
+            when {
+                categoryId == null && query.isBlank() -> noteDao.pagingSource()
+                categoryId == null -> noteDao.pagingSource(query)
+                query.isBlank() -> noteDao.pagingSource(categoryId)
+                else -> noteDao.pagingSource(categoryId, query)
+            }
         }.flow
 
     override fun observe(id: Long): Flow<NoteEntity?> = noteDao.observe(id)

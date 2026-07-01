@@ -28,7 +28,7 @@ import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.MenuAnchorType
 import androidx.compose.material3.OutlinedTextField
@@ -229,6 +229,13 @@ private fun EditNote(
                 trailingIcon = {
                     ExposedDropdownMenuDefaults.TrailingIcon(expanded = categoryMenuExpanded)
                 },
+                shape = RoundedCornerShape(18.dp),
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedContainerColor = MaterialTheme.colorScheme.surfaceVariant,
+                    unfocusedContainerColor = MaterialTheme.colorScheme.surfaceVariant,
+                    focusedBorderColor = MaterialTheme.colorScheme.outline,
+                    unfocusedBorderColor = MaterialTheme.colorScheme.outline,
+                ),
                 modifier = Modifier
                     .menuAnchor(MenuAnchorType.PrimaryNotEditable, enabled = true)
                     .fillMaxWidth(),
@@ -236,7 +243,10 @@ private fun EditNote(
             ExposedDropdownMenu(
                 expanded = categoryMenuExpanded,
                 onDismissRequest = { categoryMenuExpanded = false },
-                modifier = Modifier.heightIn(max = 280.dp),
+                modifier = Modifier
+                    .heightIn(max = 280.dp)
+                    .clip(RoundedCornerShape(18.dp))
+                    .background(MaterialTheme.colorScheme.surfaceVariant),
             ) {
                 categories.forEach { category ->
                     DropdownMenuItem(
@@ -247,14 +257,18 @@ private fun EditNote(
                         },
                     )
                 }
-                HorizontalDivider()
-                DropdownMenuItem(
-                    text = { Text("Quản lý danh mục") },
-                    onClick = {
-                        categoryMenuExpanded = false
-                        onManageCategories()
-                    },
-                )
+            }
+        }
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 12.dp),
+        ) {
+            TextButton(
+                onClick = onManageCategories,
+                modifier = Modifier.align(Alignment.CenterEnd),
+            ) {
+                Text("Quản lý danh mục")
             }
         }
         CompositionLocalProvider(LocalTextSelectionColors provides selectionColors) {

@@ -72,6 +72,7 @@ fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val selectedCategoryId by viewModel.selectedCategoryId.collectAsStateWithLifecycle()
+    val searchQuery by viewModel.searchQuery.collectAsStateWithLifecycle()
     val categories by viewModel.categories.collectAsStateWithLifecycle()
     val notes = viewModel.notes.collectAsLazyPagingItems()
 
@@ -81,8 +82,8 @@ fun HomeScreen(
             FloatingActionButton(
                 onClick = onCreateNote,
                 shape = CircleShape,
-                containerColor = AccentBlack,
-                contentColor = Color.White,
+                containerColor = MaterialTheme.colorScheme.primary,
+                contentColor = MaterialTheme.colorScheme.onPrimary,
             ) {
                 Icon(Icons.Default.Add, contentDescription = "Tạo ghi chú")
             }
@@ -112,9 +113,8 @@ fun HomeScreen(
                 },
             )
             OutlinedTextField(
-                value = "",
-                onValueChange = {},
-                readOnly = true,
+                value = searchQuery,
+                onValueChange = viewModel::updateSearchQuery,
                 singleLine = true,
                 placeholder = { Text("Tìm ghi chú") },
                 leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
@@ -140,15 +140,15 @@ fun HomeScreen(
                         onClick = { viewModel.selectCategory(null) },
                         label = { Text("Tất cả") },
                         colors = FilterChipDefaults.filterChipColors(
-                            selectedContainerColor = AccentBlack,
-                            selectedLabelColor = Color.White,
+                            selectedContainerColor = MaterialTheme.colorScheme.primary,
+                            selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
                             containerColor = MaterialTheme.colorScheme.surfaceVariant,
                         ),
                         border = FilterChipDefaults.filterChipBorder(
                             enabled = true,
                             selected = selectedCategoryId == null,
                             borderColor = MaterialTheme.colorScheme.outline,
-                            selectedBorderColor = AccentBlack,
+                            selectedBorderColor = MaterialTheme.colorScheme.primary,
                         ),
                         shape = RoundedCornerShape(50),
                     )
@@ -160,15 +160,15 @@ fun HomeScreen(
                         onClick = { viewModel.selectCategory(category.id) },
                         label = { Text(category.name) },
                         colors = FilterChipDefaults.filterChipColors(
-                            selectedContainerColor = AccentBlack,
-                            selectedLabelColor = Color.White,
+                            selectedContainerColor = MaterialTheme.colorScheme.primary,
+                            selectedLabelColor = MaterialTheme.colorScheme.onPrimary,
                             containerColor = MaterialTheme.colorScheme.surfaceVariant,
                         ),
                         border = FilterChipDefaults.filterChipBorder(
                             enabled = true,
                             selected = selected,
                             borderColor = MaterialTheme.colorScheme.outline,
-                            selectedBorderColor = AccentBlack,
+                            selectedBorderColor = MaterialTheme.colorScheme.primary,
                         ),
                         shape = RoundedCornerShape(50),
                     )

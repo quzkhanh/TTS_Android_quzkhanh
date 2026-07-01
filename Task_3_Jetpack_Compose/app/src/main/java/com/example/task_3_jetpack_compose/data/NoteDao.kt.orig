@@ -17,22 +17,6 @@ interface NoteDao {
     @Query("SELECT * FROM notes WHERE categoryId = :categoryId ORDER BY updatedAt DESC")
     fun pagingSource(categoryId: Long): PagingSource<Int, NoteEntity>
 
-    @Query(
-        "SELECT * FROM notes " +
-            "WHERE (title LIKE '%' || :query || '%' COLLATE NOCASE " +
-            "OR content LIKE '%' || :query || '%' COLLATE NOCASE) " +
-            "ORDER BY updatedAt DESC",
-    )
-    fun pagingSource(query: String): PagingSource<Int, NoteEntity>
-
-    @Query(
-        "SELECT * FROM notes WHERE categoryId = :categoryId " +
-            "AND (title LIKE '%' || :query || '%' COLLATE NOCASE " +
-            "OR content LIKE '%' || :query || '%' COLLATE NOCASE) " +
-            "ORDER BY updatedAt DESC",
-    )
-    fun pagingSource(categoryId: Long, query: String): PagingSource<Int, NoteEntity>
-
     @Query("SELECT * FROM notes WHERE id = :id LIMIT 1")
     fun observe(id: Long): Flow<NoteEntity?>
 

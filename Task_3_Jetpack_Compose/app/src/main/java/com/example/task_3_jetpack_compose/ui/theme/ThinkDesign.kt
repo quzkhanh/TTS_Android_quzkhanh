@@ -31,15 +31,15 @@ private val ThinkLightColors = lightColorScheme(
 )
 
 private val ThinkDarkColors = darkColorScheme(
-    primary = Color.White,
-    onPrimary = AccentBlack,
-    background = Color(0xFF121214),
-    onBackground = Color(0xFFF5F5F7),
-    surface = Color(0xFF1C1C1E),
-    onSurface = Color(0xFFF5F5F7),
-    surfaceVariant = Color(0xFF2C2C2E),
-    onSurfaceVariant = Color(0xFFB8B8BD),
-    outline = Color(0xFF3A3A3C),
+    primary = Color(0xFFF1F1F4),
+    onPrimary = Color(0xFF242429),
+    background = Color(0xFF242429),
+    onBackground = Color(0xFFF4F4F6),
+    surface = Color(0xFF303037),
+    onSurface = Color(0xFFF4F4F6),
+    surfaceVariant = Color(0xFF3A3A42),
+    onSurfaceVariant = Color(0xFFD0D0D6),
+    outline = Color(0xFF575760),
 )
 
 @Composable
