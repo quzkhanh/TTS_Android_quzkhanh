@@ -1,0 +1,59 @@
+# Built application files
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Java class files
+*.class
+
+# Generated files
+bin/
+gen/
+out/
+build/
+
+# Gradle files
+.gradle/
+*.iml
+
+# Local configuration file (SDK path, etc.)
+local.properties
+
+# Android Studio
+/.idea/caches/
+/.idea/libraries/
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+/.idea/compiler.xml
+/.idea/jarRepositories.xml
+/.idea/deploymentTargetSelector.xml
+/.idea/render.experimental.xml
+/.idea/kotlinc.xml
+/.idea/appInsightsSettings.xml
+/.idea/dbnavigator.xml
+/.idea/.name
+/.idea/vcs.xml
+
+# Keystore files (sensitive credentials)
+*.jks
+*.keystore
+
+# External native build
+.externalNativeBuild/
+.cxx/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Captures
+/captures
+
+# VSCode
+.vscode/
+
+# Kotlin
+.kotlin/
